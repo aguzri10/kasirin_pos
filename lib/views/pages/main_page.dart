@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kasirin_pos/views/tab-store/index.dart';
-import 'package:kasirin_pos/views/tab-tables/index.dart';
-import 'package:kasirin_pos/views/tab-transaction/index.dart';
 
 import 'tab-checkout/index.dart';
+import 'tab-store/index.dart';
+import 'tab-tables/index.dart';
+import 'tab-transaction/index.dart';
 
 class MainPage extends StatefulWidget {
   @override

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kasirin_pos/core/routes/constants.dart';
 import 'package:kasirin_pos/core/routes/routes.dart';
+import 'package:kasirin_pos/views/styles/color.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,8 +14,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Kasirin - Point of Sales',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: primaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        appBarTheme: AppBarTheme(
+          brightness: Brightness.dark,
+          color: primaryColor,
+          elevation: 0,
+        ),
+        scaffoldBackgroundColor: Color(0xFFF2F2F2),
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Router.generateRoute,
@@ -38,7 +45,7 @@ class _RootState extends State<Root> {
 
   _init() {
     Future.delayed(Duration(milliseconds: 100), () {
-      Navigator.pushNamedAndRemoveUntil(context, mainRoute, (route) => false);
+      Navigator.pushNamedAndRemoveUntil(context, checkoutRoute, (route) => false);
     });
   }
 

@@ -3,13 +3,14 @@ import 'package:kasirin_pos/core/models/dummy.dart';
 import 'package:kasirin_pos/core/routes/arguments.dart';
 import 'package:kasirin_pos/core/routes/constants.dart';
 import 'package:kasirin_pos/views/widgets/container_shadow.dart';
+import 'package:kasirin_pos/views/widgets/custom_drawer.dart';
 
 class CheckoutPage extends StatelessWidget {
   const CheckoutPage({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF2F2F2),
+      drawer: CustomDrawer(),
       body: Row(
         children: [
           Expanded(
@@ -17,7 +18,6 @@ class CheckoutPage extends StatelessWidget {
               physics: AlwaysScrollableScrollPhysics(),
               slivers: [
                 SliverAppBar(
-                  backgroundColor: Colors.redAccent,
                   title: Text('Kasirin'),
                   pinned: true,
                 ),
