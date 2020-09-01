@@ -1,3 +1,3 @@
 const String route = '/';
-const String homeRoute = '/home';
+const String mainRoute = '/home';
 const String detailRoute = '/detail';

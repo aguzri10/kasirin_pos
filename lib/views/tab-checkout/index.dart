@@ -4,7 +4,8 @@ import 'package:kasirin_pos/core/routes/arguments.dart';
 import 'package:kasirin_pos/core/routes/constants.dart';
 import 'package:kasirin_pos/views/widgets/container_shadow.dart';
 
-class HomePage extends StatelessWidget {
+class CheckoutPage extends StatelessWidget {
+  const CheckoutPage({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,33 +21,41 @@ class HomePage extends StatelessWidget {
                   title: Text('Kasirin'),
                   pinned: true,
                 ),
-                SliverGrid.count(
-                  crossAxisCount: 4,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 8,
-                  childAspectRatio: 1.50,
-                  children: [
-                    for (var category in categories) ...[
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, detailRoute,
-                              arguments:
-                                  DetailArguments(products: category.products));
-                        },
-                        child: ContainerShadow(
-                          paddingHorizontal: 8,
-                          paddingVertical: 8,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(category.name),
-                              Text(category.count.toString()),
-                            ],
+                SliverPadding(
+                  padding: EdgeInsets.all(8),
+                  sliver: SliverGrid.count(
+                    crossAxisCount: 4,
+                    mainAxisSpacing: 8,
+                    crossAxisSpacing: 8,
+                    childAspectRatio: 1.50,
+                    children: [
+                      for (var category in categories) ...[
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              detailRoute,
+                              arguments: DetailArguments(
+                                products: category.products,
+                                category: category,
+                              ),
+                            );
+                          },
+                          child: ContainerShadow(
+                            paddingHorizontal: 8,
+                            paddingVertical: 8,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(category.name),
+                                Text(category.count.toString()),
+                              ],
+                            ),
                           ),
-                        ),
-                      )
+                        )
+                      ],
                     ],
-                  ],
+                  ),
                 )
               ],
             ),

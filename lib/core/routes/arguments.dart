@@ -2,7 +2,7 @@ import 'package:kasirin_pos/core/models/dummy.dart';
 
 class DetailArguments {
   final List<Product> products;
-  final Product product;
+  final Categories category;
 
-  DetailArguments({this.products, this.product});
+  DetailArguments({this.products, this.category});
 }

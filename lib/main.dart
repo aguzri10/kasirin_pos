@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: Router.generateRoute,
     );
   }
@@ -37,7 +38,7 @@ class _RootState extends State<Root> {
 
   _init() {
     Future.delayed(Duration(milliseconds: 100), () {
-      Navigator.pushNamedAndRemoveUntil(context, homeRoute, (route) => false);
+      Navigator.pushNamedAndRemoveUntil(context, mainRoute, (route) => false);
     });
   }
 
